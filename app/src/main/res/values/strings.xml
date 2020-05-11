@@ -4,4 +4,32 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="DefaultFormulaText"> </string>
+    <string name="factorialButton">!</string>
+    <string name="percentButton">%</string>
+    <string name="closeBracketButton">)</string>
+    <string name="exponentButton">^</string>
+    <string name="openBracketButton">(</string>
+    <string name="eButton">e</string>
+    <string name="logButton">log</string>
+    <string name="lnButton">ln</string>
+    <string name="tanButton">tan</string>
+    <string name="cosButton">cos</string>
+    <string name="sinButton">sin</string>
+    <string name="minusButton">-</string>
+    <string name="plusButton">+</string>
+    <string name="multiplyButton">x</string>
+    <string name="divideButton">/</string>
+    <string name="dotButton">.</string>
+    <string name="numberZeroButton">0</string>
+    <string name="numberDoubleZeroButton">00</string>
+    <string name="numberNineButton">9</string>
+    <string name="numberEightButton">8</string>
+    <string name="numberSevenButton">7</string>
+    <string name="numberOneButton">1</string>
+    <string name="numberTwoButton">2</string>
+    <string name="numberThreeButton">3</string>
+    <string name="numberFourButton">4</string>
+    <string name="numberFiveButton">5</string>
+    <string name="numberSixButton">6</string>
+    <string name="sqrtButton">√</string>
 </resources>

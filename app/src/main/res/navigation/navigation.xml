@@ -5,7 +5,7 @@
 
     <fragment
         android:id="@+id/listFragment"
-        android:name="com.kachaninc.formulascalculator.ListFragment"
+        android:name="com.kachaninc.formulascalculator.screens.ListOfFormulas.ListFragment"
         android:label="ListFragment" >
         <action
             android:id="@+id/action_listFragment_to_formulaFragment"
@@ -13,6 +13,6 @@
     </fragment>
     <fragment
         android:id="@+id/formulaFragment"
-        android:name="com.kachaninc.formulascalculator.FormulaFragment"
+        android:name="com.kachaninc.formulascalculator.screens.formula.FormulaFragment"
         android:label="FormulaFragment" />
 </navigation>
