@@ -29,20 +29,25 @@ class FormulaViewModel : ViewModel() {
         val newElement = (view as Button).text.toString()[0]
         when (newElement) {
             '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '.' -> {
-                val newNumberElement = NumberElement(newElement.toString())
+                val newNumberElement = NumberElement(newElement)
                 formula.addElement(newNumberElement)
             }
 
             '+', '-', 'x', '/' -> {
-                val newOperationElement = OperationElement(newElement.toString())
+                val newOperationElement = OperationElement(newElement)
                 formula.addElement(newOperationElement)
             }
 
-            '(', ')', '.' -> {
-                val newSymbolElement = SymbolElement(newElement.toString())
+            '(', ')' -> {
+                val newSymbolElement = SymbolElement(newElement)
                 formula.addElement(newSymbolElement)
             }
         }
+        setText()
+    }
+
+    fun onDeleteButtonClicked() {
+        formula.deleteLastElement()
         setText()
     }
 

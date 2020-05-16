@@ -1,11 +1,15 @@
 package com.kachaninc.formulascalculator.classes
 
-class NumberElement (value: String) : Element(value) {
+class NumberElement (value: Char) : Element(value.toString()) {
     private var number = ArrayList<Char>()
     private var containDot = false
 
     init {
-        number.add(value[0])
+        number.add(value)
+    }
+
+    override fun getClassName(): String {
+        return "number"
     }
 
     fun concatenateElement(element: NumberElement) {

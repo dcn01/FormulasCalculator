@@ -116,6 +116,7 @@
             android:id="@+id/eraseButton"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:onClick="@{() -> formulaViewModel.onDeleteButtonClicked()}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHeight_default="percent"
             app:layout_constraintHeight_percent="0.10"

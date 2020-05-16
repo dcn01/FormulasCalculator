@@ -5,4 +5,6 @@ abstract class Element (protected var value: String) {
     fun getElementText() : String {
         return value
     }
+
+    abstract fun getClassName() : String
 }
