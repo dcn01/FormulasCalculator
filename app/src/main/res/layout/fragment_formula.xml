@@ -15,456 +15,255 @@
         android:padding="4dp"
         tools:context=".screens.formula.FormulaFragment">
 
+        <EditText
+            android:id="@+id/functionNameEditText"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:ems="10"
+            android:hint="@string/formula_name_hint"
+            android:inputType="textPersonName"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_default="percent"
+            app:layout_constraintHeight_percent="0.07"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <TextView
             android:id="@+id/formulaTextView"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:gravity="center"
             android:text="@{formulaViewModel.formulaText}"
+            android:textAlignment="center"
             android:textSize="24sp"
             android:textStyle="bold"
-            android:textAlignment="center"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHeight_default="percent"
-            app:layout_constraintHeight_percent="0.16"
+            app:layout_constraintHeight_percent="0.18"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/functionNameEditText" />
 
         <Button
-            android:id="@+id/factorialButton"
-            style="@style/buttonStyle"
+            android:id="@+id/closeBracketButton" style="@style/buttonStyle"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:text="@string/factorialButton"
             android:onClick="@{(view) -> formulaViewModel.onTextButtonClicked(view)}"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHeight_default="percent"
-            app:layout_constraintHeight_percent="0.12"
-            app:layout_constraintStart_toEndOf="@+id/percentButton"
-            app:layout_constraintWidth_default="percent"
-            app:layout_constraintWidth_percent="0.15" />
-
-        <Button
-            android:id="@+id/percentButton"
-            style="@style/buttonStyle"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:text="@string/percentButton"
-            android:onClick="@{(view) -> formulaViewModel.onTextButtonClicked(view)}"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHeight_default="percent"
-            app:layout_constraintHeight_percent="0.12"
-            app:layout_constraintStart_toEndOf="@+id/closeBracketButton"
-            app:layout_constraintWidth_default="percent"
-            app:layout_constraintWidth_percent="0.15" />
-
-        <Button
-            android:id="@+id/closeBracketButton"
-            style="@style/buttonStyle"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
             android:text="@string/closeBracketButton"
-            android:onClick="@{(view) -> formulaViewModel.onTextButtonClicked(view)}"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHeight_default="percent"
-            app:layout_constraintHeight_percent="0.12"
-            app:layout_constraintStart_toEndOf="@+id/openBracketButton"
-            app:layout_constraintWidth_default="percent"
-            app:layout_constraintWidth_percent="0.15" />
+            app:layout_constraintHeight_percent="0.10"
+            app:layout_constraintStart_toEndOf="@+id/dotButton"
+            app:layout_constraintTop_toBottomOf="@+id/openBracketButton" />
 
         <Button
-            android:id="@+id/exponentButton"
-            style="@style/buttonStyle"
+            android:id="@+id/openBracketButton" style="@style/buttonStyle"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:text="@string/exponentButton"
             android:onClick="@{(view) -> formulaViewModel.onTextButtonClicked(view)}"
-            app:layout_constraintHeight_default="percent"
-            app:layout_constraintHeight_percent="0.12"
-            app:layout_constraintStart_toEndOf="@+id/eButton"
-            app:layout_constraintTop_toBottomOf="@+id/sqrtButton"
-            app:layout_constraintWidth_default="percent"
-            app:layout_constraintWidth_percent="0.20" />
-
-        <Button
-            android:id="@+id/openBracketButton"
-            style="@style/buttonStyle"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
             android:text="@string/openBracketButton"
-            android:onClick="@{(view) -> formulaViewModel.onTextButtonClicked(view)}"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHeight_default="percent"
-            app:layout_constraintHeight_percent="0.12"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintWidth_default="percent"
-            app:layout_constraintWidth_percent="0.15" />
+            app:layout_constraintHeight_percent="0.10"
+            app:layout_constraintStart_toEndOf="@+id/divideButton"
+            app:layout_constraintTop_toBottomOf="@+id/eraseButton" />
 
         <Button
-            android:id="@+id/eButton"
-            style="@style/buttonStyle"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:text="@string/eButton"
-            android:onClick="@{(view) -> formulaViewModel.onTextButtonClicked(view)}"
-            app:layout_constraintHeight_default="percent"
-            app:layout_constraintHeight_percent="0.12"
-            app:layout_constraintStart_toEndOf="@+id/piButton"
-            app:layout_constraintTop_toBottomOf="@+id/logButton"
-            app:layout_constraintWidth_default="percent"
-            app:layout_constraintWidth_percent="0.20" />
-
-        <Button
-            android:id="@+id/sqrtButton"
-            android:layout_width="0dp"
+            android:id="@+id/minusButton" style="@style/buttonStyle" android:layout_width="0dp"
             android:layout_height="0dp"
             android:onClick="@{(view) -> formulaViewModel.onTextButtonClicked(view)}"
-            android:text="@string/sqrtButton"
-            app:layout_constraintHeight_default="percent"
-            app:layout_constraintHeight_percent="0.12"
-            app:layout_constraintStart_toEndOf="@+id/logButton"
-            app:layout_constraintTop_toBottomOf="@+id/tanButton"
-            app:layout_constraintWidth_default="percent"
-            app:layout_constraintWidth_percent="0.20" />
-
-        <Button
-            android:id="@+id/logButton"
-            style="@style/buttonStyle"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:text="@string/logButton"
-            android:onClick="@{(view) -> formulaViewModel.onTextButtonClicked(view)}"
-            app:layout_constraintHeight_default="percent"
-            app:layout_constraintHeight_percent="0.12"
-            app:layout_constraintStart_toEndOf="@+id/lnButton"
-            app:layout_constraintTop_toBottomOf="@+id/cosButton"
-            app:layout_constraintWidth_default="percent"
-            app:layout_constraintWidth_percent="0.20" />
-
-        <Button
-            android:id="@+id/piButton"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:text="\u03C0"
-            android:onClick="@{(view) -> formulaViewModel.onTextButtonClicked(view)}"
-            app:layout_constraintHeight_default="percent"
-            app:layout_constraintHeight_percent="0.12"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/lnButton"
-            app:layout_constraintWidth_default="percent"
-            app:layout_constraintWidth_percent="0.20" />
-
-        <Button
-            android:id="@+id/lnButton"
-            style="@style/buttonStyle"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:text="@string/lnButton"
-            android:onClick="@{(view) -> formulaViewModel.onTextButtonClicked(view)}"
-            app:layout_constraintHeight_default="percent"
-            app:layout_constraintHeight_percent="0.12"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/sinButton"
-            app:layout_constraintWidth_default="percent"
-            app:layout_constraintWidth_percent="0.20" />
-
-        <Button
-            android:id="@+id/tanButton"
-            style="@style/buttonStyle"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:text="@string/tanButton"
-            android:onClick="@{(view) -> formulaViewModel.onTextButtonClicked(view)}"
-            app:layout_constraintHeight_default="percent"
-            app:layout_constraintHeight_percent="0.12"
-            app:layout_constraintStart_toEndOf="@+id/cosButton"
-            app:layout_constraintTop_toBottomOf="@+id/minusButton"
-            app:layout_constraintWidth_default="percent"
-            app:layout_constraintWidth_percent="0.20" />
-
-        <Button
-            android:id="@+id/cosButton"
-            style="@style/buttonStyle"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:text="@string/cosButton"
-            android:onClick="@{(view) -> formulaViewModel.onTextButtonClicked(view)}"
-            app:layout_constraintHeight_default="percent"
-            app:layout_constraintHeight_percent="0.12"
-            app:layout_constraintStart_toEndOf="@+id/sinButton"
-            app:layout_constraintTop_toBottomOf="@+id/dotButton"
-            app:layout_constraintWidth_default="percent"
-            app:layout_constraintWidth_percent="0.20" />
-
-        <Button
-            android:id="@+id/sinButton"
-            style="@style/buttonStyle"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:text="@string/sinButton"
-            android:onClick="@{(view) -> formulaViewModel.onTextButtonClicked(view)}"
-            app:layout_constraintHeight_default="percent"
-            app:layout_constraintHeight_percent="0.12"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/numberDoubleZeroButton"
-            app:layout_constraintWidth_default="percent"
-            app:layout_constraintWidth_percent="0.20" />
-
-        <Button
-            android:id="@+id/minusButton"
-            style="@style/buttonStyle"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:text="@string/minusButton"
-            android:onClick="@{(view) -> formulaViewModel.onTextButtonClicked(view)}"
-            app:layout_constraintEnd_toStartOf="@+id/variablesRecyclerView"
-            app:layout_constraintHeight_default="percent"
-            app:layout_constraintHeight_percent="0.072"
+            android:text="@string/minusButton" app:layout_constraintHeight_default="percent"
+            app:layout_constraintHeight_percent="0.10"
+            app:layout_constraintStart_toEndOf="@+id/numberSixButton"
             app:layout_constraintTop_toBottomOf="@+id/plusButton"
             app:layout_constraintWidth_default="percent"
-            app:layout_constraintWidth_percent="0.15" />
+            app:layout_constraintWidth_percent="0.166" />
 
         <Button
-            android:id="@+id/plusButton"
-            style="@style/buttonStyle"
-            android:layout_width="0dp"
+            android:id="@+id/plusButton" style="@style/buttonStyle" android:layout_width="0dp"
             android:layout_height="0dp"
-            android:text="@string/plusButton"
             android:onClick="@{(view) -> formulaViewModel.onTextButtonClicked(view)}"
-            app:layout_constraintEnd_toStartOf="@+id/variablesRecyclerView"
-            app:layout_constraintHeight_default="percent"
-            app:layout_constraintHeight_percent="0.072"
+            android:text="@string/plusButton" app:layout_constraintHeight_default="percent"
+            app:layout_constraintHeight_percent="0.10"
+            app:layout_constraintStart_toEndOf="@+id/numberThreeButton"
+            app:layout_constraintTop_toBottomOf="@+id/formulaTextView"
+            app:layout_constraintWidth_default="percent"
+            app:layout_constraintWidth_percent="0.166" />
+
+        <Button
+            android:id="@+id/multiplyButton" style="@style/buttonStyle" android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:onClick="@{(view) -> formulaViewModel.onTextButtonClicked(view)}"
+            android:text="@string/multiplyButton" app:layout_constraintHeight_default="percent"
+            app:layout_constraintHeight_percent="0.10"
+            app:layout_constraintStart_toEndOf="@+id/plusButton"
+            app:layout_constraintTop_toBottomOf="@+id/formulaTextView"
+            app:layout_constraintWidth_default="percent"
+            app:layout_constraintWidth_percent="0.166" />
+
+        <Button
+            android:id="@+id/divideButton" style="@style/buttonStyle" android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:onClick="@{(view) -> formulaViewModel.onTextButtonClicked(view)}"
+            android:text="@string/divideButton" app:layout_constraintHeight_default="percent"
+            app:layout_constraintHeight_percent="0.10"
+            app:layout_constraintStart_toEndOf="@+id/minusButton"
             app:layout_constraintTop_toBottomOf="@+id/multiplyButton"
             app:layout_constraintWidth_default="percent"
-            app:layout_constraintWidth_percent="0.15" />
-
-        <Button
-            android:id="@+id/multiplyButton"
-            style="@style/buttonStyle"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:text="@string/multiplyButton"
-            android:onClick="@{(view) -> formulaViewModel.onTextButtonClicked(view)}"
-            app:layout_constraintEnd_toStartOf="@+id/variablesRecyclerView"
-            app:layout_constraintHeight_default="percent"
-            app:layout_constraintHeight_percent="0.072"
-            app:layout_constraintTop_toBottomOf="@+id/divideButton"
-            app:layout_constraintWidth_default="percent"
-            app:layout_constraintWidth_percent="0.15" />
-
-        <Button
-            android:id="@+id/divideButton"
-            style="@style/buttonStyle"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:text="@string/divideButton"
-            android:onClick="@{(view) -> formulaViewModel.onTextButtonClicked(view)}"
-            app:layout_constraintEnd_toStartOf="@+id/variablesRecyclerView"
-            app:layout_constraintHeight_default="percent"
-            app:layout_constraintHeight_percent="0.072"
-            app:layout_constraintTop_toBottomOf="@+id/eraseButton"
-            app:layout_constraintWidth_default="percent"
-            app:layout_constraintWidth_percent="0.15" />
+            app:layout_constraintWidth_percent="0.166" />
 
         <ImageButton
             android:id="@+id/eraseButton"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:layout_constraintEnd_toStartOf="@+id/variablesRecyclerView"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHeight_default="percent"
-            app:layout_constraintHeight_percent="0.072"
-            app:layout_constraintTop_toBottomOf="@+id/formulaTextView"
-            app:layout_constraintWidth_default="percent"
-            app:layout_constraintWidth_percent="0.15" />
+            app:layout_constraintHeight_percent="0.10"
+            app:layout_constraintStart_toEndOf="@+id/multiplyButton"
+            app:layout_constraintTop_toBottomOf="@+id/formulaTextView" />
 
         <Button
-            android:id="@+id/dotButton"
-            style="@style/buttonStyle"
-            android:layout_width="0dp"
+            android:id="@+id/dotButton" style="@style/buttonStyle" android:layout_width="0dp"
             android:layout_height="0dp"
-            android:text="@string/dotButton"
             android:onClick="@{(view) -> formulaViewModel.onTextButtonClicked(view)}"
-            app:layout_constraintHeight_default="percent"
-            app:layout_constraintHeight_percent="0.09"
+            android:text="@string/dotButton" app:layout_constraintHeight_default="percent"
+            app:layout_constraintHeight_percent="0.10"
             app:layout_constraintStart_toEndOf="@+id/numberZeroButton"
-            app:layout_constraintTop_toBottomOf="@+id/numberNineButton"
+            app:layout_constraintTop_toBottomOf="@+id/divideButton"
             app:layout_constraintWidth_default="percent"
-            app:layout_constraintWidth_percent="0.15" />
+            app:layout_constraintWidth_percent="0.166" />
 
         <Button
-            android:id="@+id/numberZeroButton"
-            style="@style/buttonStyle"
-            android:layout_width="0dp"
+            android:id="@+id/numberZeroButton" style="@style/buttonStyle" android:layout_width="0dp"
             android:layout_height="0dp"
-            android:text="@string/numberZeroButton"
             android:onClick="@{(view) -> formulaViewModel.onTextButtonClicked(view)}"
-            app:layout_constraintHeight_default="percent"
-            app:layout_constraintHeight_percent="0.09"
-            app:layout_constraintStart_toEndOf="@+id/numberDoubleZeroButton"
-            app:layout_constraintTop_toBottomOf="@+id/numberEightButton"
+            android:text="@string/numberZeroButton" app:layout_constraintHeight_default="percent"
+            app:layout_constraintHeight_percent="0.10"
+            app:layout_constraintStart_toEndOf="@+id/numberNineButton"
+            app:layout_constraintTop_toBottomOf="@+id/minusButton"
             app:layout_constraintWidth_default="percent"
-            app:layout_constraintWidth_percent="0.15" />
+            app:layout_constraintWidth_percent="0.166" />
 
         <Button
-            android:id="@+id/numberDoubleZeroButton"
-            style="@style/buttonStyle"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:text="@string/numberDoubleZeroButton"
-            android:onClick="@{(view) -> formulaViewModel.onTextButtonClicked(view)}"
-            app:layout_constraintHeight_default="percent"
-            app:layout_constraintHeight_percent="0.09"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/numberSevenButton"
-            app:layout_constraintWidth_default="percent"
-            app:layout_constraintWidth_percent="0.15" />
-
-        <Button
-            android:id="@+id/numberNineButton"
-            style="@style/buttonStyle"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:text="@string/numberNineButton"
-            android:onClick="@{(view) -> formulaViewModel.onTextButtonClicked(view)}"
-            app:layout_constraintHeight_default="percent"
-            app:layout_constraintHeight_percent="0.09"
+            android:id="@+id/numberNineButton" style="@style/buttonStyle" android:layout_width="0dp"
+            android:layout_height="0dp" android:onClick="@{(view) -> formulaViewModel.onTextButtonClicked(view)}"
+            android:text="@string/numberNineButton" app:layout_constraintHeight_default="percent"
+            app:layout_constraintHeight_percent="0.10"
             app:layout_constraintStart_toEndOf="@+id/numberEightButton"
             app:layout_constraintTop_toBottomOf="@+id/numberSixButton"
             app:layout_constraintWidth_default="percent"
-            app:layout_constraintWidth_percent="0.15" />
+            app:layout_constraintWidth_percent="0.166" />
 
         <Button
-            android:id="@+id/numberEightButton"
-            style="@style/buttonStyle"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:text="@string/numberEightButton"
+            android:id="@+id/numberEightButton" style="@style/buttonStyle"
+            android:layout_width="0dp" android:layout_height="0dp"
             android:onClick="@{(view) -> formulaViewModel.onTextButtonClicked(view)}"
-            app:layout_constraintHeight_default="percent"
-            app:layout_constraintHeight_percent="0.09"
+            android:text="@string/numberEightButton" app:layout_constraintHeight_default="percent"
+            app:layout_constraintHeight_percent="0.10"
             app:layout_constraintStart_toEndOf="@+id/numberSevenButton"
             app:layout_constraintTop_toBottomOf="@+id/numberFiveButton"
             app:layout_constraintWidth_default="percent"
-            app:layout_constraintWidth_percent="0.15" />
+            app:layout_constraintWidth_percent="0.166" />
 
         <Button
-            android:id="@+id/numberSevenButton"
-            style="@style/buttonStyle"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:text="@string/numberSevenButton"
+            android:id="@+id/numberSevenButton" style="@style/buttonStyle"
+            android:layout_width="0dp" android:layout_height="0dp"
             android:onClick="@{(view) -> formulaViewModel.onTextButtonClicked(view)}"
-            app:layout_constraintHeight_default="percent"
-            app:layout_constraintHeight_percent="0.09"
-            app:layout_constraintStart_toStartOf="parent"
+            android:text="@string/numberSevenButton" app:layout_constraintHeight_default="percent"
+            app:layout_constraintHeight_percent="0.10" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/numberFourButton"
             app:layout_constraintWidth_default="percent"
-            app:layout_constraintWidth_percent="0.15" />
+            app:layout_constraintWidth_percent="0.166" />
 
         <Button
-            android:id="@+id/numberOneButton"
-            style="@style/buttonStyle"
-            android:layout_width="0dp"
+            android:id="@+id/numberOneButton" style="@style/buttonStyle" android:layout_width="0dp"
             android:layout_height="0dp"
-            android:text="@string/numberOneButton"
             android:onClick="@{(view) -> formulaViewModel.onTextButtonClicked(view)}"
-            app:layout_constraintHeight_default="percent"
-            app:layout_constraintHeight_percent="0.090"
-            app:layout_constraintStart_toStartOf="parent"
+            android:text="@string/numberOneButton" app:layout_constraintHeight_default="percent"
+            app:layout_constraintHeight_percent="0.10" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/formulaTextView"
             app:layout_constraintWidth_default="percent"
-            app:layout_constraintWidth_percent="0.15" />
+            app:layout_constraintWidth_percent="0.166" />
 
         <Button
-            android:id="@+id/numberTwoButton"
-            style="@style/buttonStyle"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:text="@string/numberTwoButton"
-            android:onClick="@{(view) -> formulaViewModel.onTextButtonClicked(view)}"
-            app:layout_constraintHeight_default="percent"
-            app:layout_constraintHeight_percent="0.09"
+            android:id="@+id/numberTwoButton" style="@style/buttonStyle" android:layout_width="0dp"
+            android:layout_height="0dp" android:onClick="@{(view) -> formulaViewModel.onTextButtonClicked(view)}"
+            android:text="@string/numberTwoButton" app:layout_constraintHeight_default="percent"
+            app:layout_constraintHeight_percent="0.10"
             app:layout_constraintStart_toEndOf="@+id/numberOneButton"
             app:layout_constraintTop_toBottomOf="@+id/formulaTextView"
             app:layout_constraintWidth_default="percent"
-            app:layout_constraintWidth_percent="0.15" />
+            app:layout_constraintWidth_percent="0.166" />
 
         <Button
-            android:id="@+id/numberThreeButton"
-            style="@style/buttonStyle"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:text="@string/numberThreeButton"
+            android:id="@+id/numberThreeButton" style="@style/buttonStyle"
+            android:layout_width="0dp" android:layout_height="0dp"
             android:onClick="@{(view) -> formulaViewModel.onTextButtonClicked(view)}"
-            app:layout_constraintHeight_default="percent"
-            app:layout_constraintHeight_percent="0.09"
+            android:text="@string/numberThreeButton" app:layout_constraintHeight_default="percent"
+            app:layout_constraintHeight_percent="0.10"
             app:layout_constraintStart_toEndOf="@+id/numberTwoButton"
             app:layout_constraintTop_toBottomOf="@+id/formulaTextView"
             app:layout_constraintWidth_default="percent"
-            app:layout_constraintWidth_percent="0.15" />
+            app:layout_constraintWidth_percent="0.166" />
 
         <Button
-            android:id="@+id/numberFourButton"
-            style="@style/buttonStyle"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:text="@string/numberFourButton"
-            android:onClick="@{(view) -> formulaViewModel.onTextButtonClicked(view)}"
-            app:layout_constraintHeight_default="percent"
-            app:layout_constraintHeight_percent="0.09"
-            app:layout_constraintStart_toStartOf="parent"
+            android:id="@+id/numberFourButton" style="@style/buttonStyle" android:layout_width="0dp"
+            android:layout_height="0dp" android:onClick="@{(view) -> formulaViewModel.onTextButtonClicked(view)}"
+            android:text="@string/numberFourButton" app:layout_constraintHeight_default="percent"
+            app:layout_constraintHeight_percent="0.10" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/numberOneButton"
             app:layout_constraintWidth_default="percent"
-            app:layout_constraintWidth_percent="0.15" />
+            app:layout_constraintWidth_percent="0.166" />
 
         <Button
-            android:id="@+id/numberFiveButton"
-            style="@style/buttonStyle"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:text="@string/numberFiveButton"
-            android:onClick="@{(view) -> formulaViewModel.onTextButtonClicked(view)}"
-            app:layout_constraintHeight_default="percent"
-            app:layout_constraintHeight_percent="0.09"
+            android:id="@+id/numberFiveButton" style="@style/buttonStyle" android:layout_width="0dp"
+            android:layout_height="0dp" android:onClick="@{(view) -> formulaViewModel.onTextButtonClicked(view)}"
+            android:text="@string/numberFiveButton" app:layout_constraintHeight_default="percent"
+            app:layout_constraintHeight_percent="0.10"
             app:layout_constraintStart_toEndOf="@+id/numberFourButton"
             app:layout_constraintTop_toBottomOf="@+id/numberTwoButton"
             app:layout_constraintWidth_default="percent"
-            app:layout_constraintWidth_percent="0.15" />
+            app:layout_constraintWidth_percent="0.166" />
 
         <Button
-            android:id="@+id/numberSixButton"
-            style="@style/buttonStyle"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:text="@string/numberSixButton"
-            android:onClick="@{(view) -> formulaViewModel.onTextButtonClicked(view)}"
-            app:layout_constraintHeight_default="percent"
-            app:layout_constraintHeight_percent="0.09"
+            android:id="@+id/numberSixButton" style="@style/buttonStyle" android:layout_width="0dp"
+            android:layout_height="0dp" android:onClick="@{(view) -> formulaViewModel.onTextButtonClicked(view)}"
+            android:text="@string/numberSixButton" app:layout_constraintHeight_default="percent"
+            app:layout_constraintHeight_percent="0.10"
             app:layout_constraintStart_toEndOf="@+id/numberFiveButton"
             app:layout_constraintTop_toBottomOf="@+id/numberThreeButton"
             app:layout_constraintWidth_default="percent"
-            app:layout_constraintWidth_percent="0.15" />
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/variablesRecyclerView"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHeight_default="percent"
-            app:layout_constraintHeight_percent="0.42"
-            app:layout_constraintTop_toBottomOf="@+id/formulaTextView"
-            app:layout_constraintWidth_default="percent"
-            app:layout_constraintWidth_percent="0.4" />
+            app:layout_constraintWidth_percent="0.166" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/functionsRecyclerView"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/DoneButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/variablesRecyclerView"
+            app:layout_constraintTop_toBottomOf="@+id/closeBracketButton" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/variablesRecyclerView"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/DoneButton"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/numberSevenButton"
+            app:layout_constraintWidth_default="percent"
+            app:layout_constraintWidth_percent="0.5" />
+
+        <Button
+            android:id="@+id/DoneButton"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:text="@string/doneButton"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/variablesRecyclerView"
-            app:layout_constraintWidth_default="percent"
-            app:layout_constraintWidth_percent="0.4" />
+            app:layout_constraintHeight_default="percent"
+            app:layout_constraintHeight_percent="0.1"
+            app:layout_constraintStart_toStartOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

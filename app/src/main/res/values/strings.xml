@@ -32,4 +32,6 @@
     <string name="numberFiveButton">5</string>
     <string name="numberSixButton">6</string>
     <string name="sqrtButton">√</string>
+    <string name="doneButton">Done</string>
+    <string name="formula_name_hint">Formula Name</string>
 </resources>
