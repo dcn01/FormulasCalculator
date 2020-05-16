@@ -7,29 +7,47 @@ import android.widget.Toast
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.kachaninc.formulascalculator.classes.Formula
+import com.kachaninc.formulascalculator.classes.NumberElement
+import com.kachaninc.formulascalculator.classes.OperationElement
+import com.kachaninc.formulascalculator.classes.SymbolElement
 import org.mariuszgromada.math.mxparser.*
 
 class FormulaViewModel : ViewModel() {
+
+    private var formula = Formula()
 
     private var _formulaText = MutableLiveData<String>()
     val formulaText: LiveData<String>
         get() = _formulaText
 
     init {
-        _formulaText.value = ""
+        setText()
     }
 
-    fun onTextButtonClicked (view: View) {
-        val newElement = (view as Button).text.toString()
-        if (formulaText.value.isNullOrEmpty() || canAddElementToFormula(newElement)) _formulaText.value += newElement
+    fun onFormulaElementButtonClicked (view: View) {
+        val newElement = (view as Button).text.toString()[0]
+        when (newElement) {
+            '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '.' -> {
+                val newNumberElement = NumberElement(newElement.toString())
+                formula.addElement(newNumberElement)
+            }
+
+            '+', '-', 'x', '/' -> {
+                val newOperationElement = OperationElement(newElement.toString())
+                formula.addElement(newOperationElement)
+            }
+
+            '(', ')', '.' -> {
+                val newSymbolElement = SymbolElement(newElement.toString())
+                formula.addElement(newSymbolElement)
+            }
+        }
+        setText()
     }
 
-    private fun canAddElementToFormula(newElement: String): Boolean {
-        val lastSymbol = formulaText.value!![formulaText.value?.length!!-1]
-
-
-
-        return false
+    private fun setText() {
+        _formulaText.value = formula.getFormulaText()
     }
 
 }
